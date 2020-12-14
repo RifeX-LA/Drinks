@@ -11,8 +11,10 @@ enum class LimonadeKind {classic, coconut, tropic, berry, crimson, apple};
 
 class Milk: public SoftDrinks {
 public:
+    Milk(string name, double volume, int shelfLife, double fatContent);
     int shelfLife() const;
     double fatContent() const;
+    virtual ~Milk() {}
 private:
     int shelfLife_;
     double fatContent_;
@@ -20,8 +22,10 @@ private:
 
 class Mineral: public SoftDrinks {
 public:
+    Mineral(string name, double volume, Carbonation carbonation, Mineralization mineraliz);
     string carbonation() const;
     string mineraliz() const;
+    virtual ~Mineral() {}
 private:
     Carbonation carbonation_;
     Mineralization mineraliz_;
@@ -29,11 +33,14 @@ private:
 
 class Limonade: public SoftDrinks {
 public:
+    Limonade(string name, double volume, Carbonation carbonation, LimonadeKind limonadeKind);
     string carbonation() const;
-    string limonadeKind() const;
+    const char* limonadeKind() const;
+    virtual ~Limonade() {}
 private:
     Carbonation carbonation_;
     LimonadeKind limonadeKind_;
+    static const char* limonade[];
 };
 
 

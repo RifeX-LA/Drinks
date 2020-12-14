@@ -3,6 +3,7 @@
 
 
 #include <string>
+
 using std::string;
 
 class Drinks {
@@ -20,6 +21,7 @@ class AlcoDrinks: public Drinks {
 public:
     AlcoDrinks(string name, double volume, double alcoContent);
     string name() const override;
+    virtual double alcoContent() const = 0;
     virtual ~AlcoDrinks() {}
 protected:
     double alcoContent_;
