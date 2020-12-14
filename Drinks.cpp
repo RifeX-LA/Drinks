@@ -12,10 +12,6 @@ Drinks::Drinks(string name, double volume) {
     volume_ = volume;
 }
 
-string Drinks::name() const {
-    return name_;
-}
-
 double Drinks::volume() const {
     return volume_;
 }
@@ -24,13 +20,15 @@ AlcoDrinks::AlcoDrinks(string name, double volume, double alcoContent): Drinks(s
     if (alcoContent <= 0 || alcoContent > 100) {
         throw std::invalid_argument("Invalid argument for alcohol content");
     }
-    name_ = name;
-    volume_ = volume;
     alcoContent_ = alcoContent;
 }
 
-double AlcoDrinks::alcoContent() const {
-    return alcoContent_;
+string AlcoDrinks::name() const {
+    return name_;
 }
 
 SoftDrinks::SoftDrinks(string name, double volume): Drinks(std::move(name), volume) {}
+
+string SoftDrinks::name() const {
+    return name_;
+}

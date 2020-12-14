@@ -4,7 +4,7 @@
 
 int main() {
 
-    //Beer b("Hello", 1, 50, Raw::barley, BeerColor::dark);
-    //std::cout << b.raw();
+    Beer b("fdaf", 1.21, 50, Raw::barley, BeerColor::dark);
+    std::cout << b.volume();
     return 0;
 }

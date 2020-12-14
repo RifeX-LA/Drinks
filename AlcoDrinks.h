@@ -16,12 +16,8 @@ enum class WineColor {white, red, orange, pink};
 class Beer: public AlcoDrinks {
 public:
     Beer(string name, double volume, double alcoContent, Raw raw, BeerColor color);
-    double alcoContent() const override;
-    const char* raw() const;
-    string color() const;
     virtual ~Beer() {}
 private:
-    static const char* raws[];
     Raw raw_;
     BeerColor color_;
 };
@@ -29,8 +25,6 @@ private:
 class Cognac: public AlcoDrinks {
 public:
     Cognac(string name, double volume, double alcoContent, Aging aging);
-    double alcoContent() const override;
-    string aging() const;
     virtual ~Cognac() {}
 private:
     Aging aging_;
@@ -39,9 +33,6 @@ private:
 class Wine: public AlcoDrinks {
 public:
     Wine(string name, double volume, double alcoContent, SugarContent, WineColor color);
-    double alcoContent() const override;
-    string sugarContent() const;
-    string color() const;
     virtual ~Wine() {}
 private:
     SugarContent sugarContent_;
