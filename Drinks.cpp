@@ -1,33 +1,42 @@
 #include "Drinks.h"
 #include <stdexcept>
+#include <utility>
 
-Drinks::Drinks(string name, double volume) {
+Drinks::Drinks(const string& name, double size) {
+    rename(name);
+    resize(size);
+}
+
+void Drinks::rename(const string& name) {
     if (name.empty()) {
         throw std::invalid_argument("The name must not be empty");
     }
-    if (volume < 0 || volume > 10) {
-        throw std::invalid_argument("Invalid argument for volume");
-    }
     name_ = name;
-    volume_ = volume;
 }
 
-double Drinks::volume() const {
-    return volume_;
+double Drinks::size() const {
+    return size_;
 }
 
-AlcoDrinks::AlcoDrinks(string name, double volume, double alcoContent): Drinks(std::move(name), volume) {
-    if (alcoContent <= 0 || alcoContent > 100) {
-        throw std::invalid_argument("Invalid argument for alcohol content");
+void Drinks::resize(double size) {
+    if (size < 0 || size > 10) {
+        throw std::invalid_argument("Invalid argument for size");
     }
-    alcoContent_ = alcoContent;
+    size_ = size;
+}
+
+AlcoDrinks::AlcoDrinks(const string& name, double size, double proof): Drinks(name, size) {
+    if (proof <= 0 || proof > 200) {
+        throw std::invalid_argument("Invalid argument for proof");
+    }
+    proof_ = proof;
 }
 
 string AlcoDrinks::name() const {
     return name_;
 }
 
-SoftDrinks::SoftDrinks(string name, double volume): Drinks(std::move(name), volume) {}
+SoftDrinks::SoftDrinks(const string& name, double size): Drinks(name, size) {}
 
 string SoftDrinks::name() const {
     return name_;

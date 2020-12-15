@@ -4,26 +4,26 @@
 
 const char* Limonade::limonade[] = {"classic", "coconut", "tropic", "berry", "crimson", "apple"};
 
-Milk::Milk(string name, double volume, int shelfLife, double fatContent): SoftDrinks(std::move(name), volume) {
+Milk::Milk(const string& name, double size, int shelfLife, double fat): SoftDrinks(name, size) {
     if (shelfLife < 0 || shelfLife > 60) {
         throw std::invalid_argument("Invalid argument for shelf life");
     }
-    if (shelfLife < 0 || shelfLife > 20) {
-        throw std::invalid_argument("Invalid argument for fat content");
+    if (fat < 0 || fat > 15) {
+        throw std::invalid_argument("Invalid argument for fat");
     }
     shelfLife_ = shelfLife;
-    fatContent_ = fatContent;
+    fat_ = fat;
 }
 
 int Milk::shelfLife() const {
     return shelfLife_;
 }
 
-double Milk::fatContent() const {
-    return fatContent_;
+double Milk::fat() const {
+    return fat_;
 }
 
-Mineral::Mineral(string name, double volume, Carbonation carbonation, Mineralization mineraliz): SoftDrinks(std::move(name), volume) {
+Mineral::Mineral(const string& name, double size, Carbonation carbonation, Mineralization mineraliz): SoftDrinks(name, size) {
     carbonation_ = carbonation;
     mineraliz_ = mineraliz;
 }
@@ -46,9 +46,9 @@ string Mineral::mineraliz() const {
     }
 }
 
-Limonade::Limonade(string name, double volume, Carbonation carbonation, LimonadeKind limonadeKind): SoftDrinks(std::move(name), volume) {
+Limonade::Limonade(const string& name, double size, Carbonation carbonation, LimonadeType type): SoftDrinks(name, size) {
     carbonation_ = carbonation;
-    limonadeKind_ = limonadeKind;
+    type_ = type;
 }
 
 string Limonade::carbonation() const {
@@ -59,6 +59,6 @@ string Limonade::carbonation() const {
     }
 }
 
-const char *Limonade::limonadeKind() const {
-    return limonade[static_cast<int>(limonadeKind_)];
+const char *Limonade::type() const {
+    return limonade[static_cast<int>(type_)];
 }

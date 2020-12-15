@@ -7,22 +7,22 @@ using std::string;
 
 enum class Carbonation {still, slightly, strongly};
 enum class Mineralization {insipid, slightly, low, medium, highly};
-enum class LimonadeKind {classic, coconut, tropic, berry, crimson, apple};
+enum class LimonadeType {classic, coconut, tropic, berry, crimson, apple};
 
 class Milk: public SoftDrinks {
 public:
-    Milk(string name, double volume, int shelfLife, double fatContent);
+    Milk(const string& name, double size, int shelfLife, double fat);
     int shelfLife() const;
-    double fatContent() const;
+    double fat() const;
     virtual ~Milk() {}
 private:
     int shelfLife_;
-    double fatContent_;
+    double fat_;
 };
 
 class Mineral: public SoftDrinks {
 public:
-    Mineral(string name, double volume, Carbonation carbonation, Mineralization mineraliz);
+    Mineral(const string& name, double size, Carbonation carbonation, Mineralization mineraliz);
     string carbonation() const;
     string mineraliz() const;
     virtual ~Mineral() {}
@@ -33,13 +33,13 @@ private:
 
 class Limonade: public SoftDrinks {
 public:
-    Limonade(string name, double volume, Carbonation carbonation, LimonadeKind limonadeKind);
+    Limonade(const string& name, double size, Carbonation carbonation, LimonadeType type);
     string carbonation() const;
-    const char* limonadeKind() const;
+    const char* type() const;
     virtual ~Limonade() {}
 private:
     Carbonation carbonation_;
-    LimonadeKind limonadeKind_;
+    LimonadeType type_;
     static const char* limonade[];
 };
 

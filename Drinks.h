@@ -8,28 +8,30 @@ using std::string;
 
 class Drinks {
 public:
-    Drinks(string name, double volume);
+    Drinks(const string& name, double size);
     virtual string name() const = 0;
-    virtual double volume() const;
+    void rename(const string& name);
+    double size() const;
+    void resize(double size);
     virtual ~Drinks() {}
 protected:
     string name_;
-    double volume_;
+    double size_;
 };
 
 class AlcoDrinks: public Drinks {
 public:
-    AlcoDrinks(string name, double volume, double alcoContent);
+    AlcoDrinks(const string& name, double size, double proof);
     string name() const override;
-    virtual double alcoContent() const = 0;
+    virtual double proof() const = 0;
     virtual ~AlcoDrinks() {}
 protected:
-    double alcoContent_;
+    double proof_;
 };
 
 class SoftDrinks: public Drinks {
 public:
-    SoftDrinks(string name, double volume);
+    SoftDrinks(const string& name, double size);
     string name() const override;
     virtual ~SoftDrinks() {}
 };

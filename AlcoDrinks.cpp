@@ -1,16 +1,16 @@
 #include "AlcoDrinks.h"
 
 const char* Beer::raws[] = {"barley", "wheat", "ginger", "rice", "corn"};
-const char* Cognac::age[] = {"VS", "Superior", "SOP", "VSOP", "EO"};
+const char* Cognac::agings[] = {"VS", "Superior", "SOP", "VSOP", "EO"};
 const char* Wine::wineColor[] = {"white", "red", "orange", "pink"};
 
-Beer::Beer(string name, double volume, double alcoContent, Raw raw, BeerColor color): AlcoDrinks(std::move(name), volume, alcoContent) {
+Beer::Beer(const string& name, double size, double proof, Raw raw, BeerColor color): AlcoDrinks(name, size, proof) {
     raw_ = raw;
     color_ = color;
 }
 
-double Beer::alcoContent() const {
-    return alcoContent_;
+double Beer::proof() const {
+    return proof_;
 }
 
 const char *Beer::raw() const {
@@ -24,35 +24,35 @@ string Beer::color() const {
     return "dark";
 }
 
-Cognac::Cognac(string name, double volume, double alcoContent, Aging aging): AlcoDrinks(std::move(name), volume, alcoContent) {
+Cognac::Cognac(const string& name, double size, double proof, Aging aging): AlcoDrinks(name, size, proof) {
     aging_ = aging;
 }
 
-double Cognac::alcoContent() const {
-    return alcoContent_;
+double Cognac::proof() const {
+    return proof_;
 }
 
 const char *Cognac::aging() const {
-    return age[static_cast<int>(aging_)];
+    return agings[static_cast<int>(aging_)];
 }
 
-Wine::Wine(string name, double volume, double alcoContent, BySugarContent sugar, WineColor color): AlcoDrinks(std::move(name), volume, alcoContent) {
-    sugar_ = sugar;
+Wine::Wine(const string& name, double size, double proof, Sweetness sweetness, WineColor color): AlcoDrinks(name, size, proof) {
+    sweetness_ = sweetness;
     color_ = color;
 }
 
-double Wine::alcoContent() const {
-    return alcoContent_;
+double Wine::proof() const {
+    return proof_;
 }
 
 const char* Wine::color() const {
     return wineColor[static_cast<int>(color_)];
 }
 
-string Wine::sugar() const {
-    switch (sugar_) {
-        case BySugarContent::dry: return "dry";
-        case BySugarContent::semiDry: return "semi-dry";
-        case BySugarContent::sweet: return "sweet";
+string Wine::sweetness() const {
+    switch (sweetness_) {
+        case Sweetness::dry: return "dry";
+        case Sweetness::semiDry: return "semi-dry";
+        case Sweetness::sweet: return "sweet";
     }
 }
