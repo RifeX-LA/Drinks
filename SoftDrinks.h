@@ -3,7 +3,6 @@
 
 #include <string>
 #include "Drinks.h"
-using std::string;
 
 enum class Carbonation {still, slightly, strongly};
 enum class Mineralization {insipid, slightly, low, medium, highly};
@@ -35,12 +34,12 @@ class Limonade: public SoftDrinks {
 public:
     Limonade(const string& name, double size, Carbonation carbonation, LimonadeType type);
     string carbonation() const;
-    const char* type() const;
+    const string type() const;
     virtual ~Limonade() {}
 private:
     Carbonation carbonation_;
     LimonadeType type_;
-    static const char* limonade[];
+    static const string limonade[];
 };
 
 

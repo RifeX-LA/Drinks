@@ -1,10 +1,9 @@
 #include <iostream>
-#include "AlcoDrinks.h"
-#include "SoftDrinks.h"
+#include "Drinks.h"
 
 int main() {
     try {
-        Beer beer("Alaskan", 1.2, 50, Raw::barley, BeerColor::dark);
+        Beer beer("Alaskan", 1.2, 50, Raw::corn, BeerColor::dark);
         Wine wine("Merlot", 1.7, 20, Sweetness::sweet, WineColor::red);
         Cognac cognac("Hennessy", 1.5, 30, Aging::SOP);
         Milk milk("Freshz", 1, 5, 3);

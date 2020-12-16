@@ -1,8 +1,7 @@
 #include <stdexcept>
-#include <utility>
 #include "SoftDrinks.h"
 
-const char* Limonade::limonade[] = {"classic", "coconut", "tropic", "berry", "crimson", "apple"};
+const string Limonade::limonade[] = {"classic", "coconut", "tropic", "berry", "crimson", "apple"};
 
 Milk::Milk(const string& name, double size, int shelfLife, double fat): SoftDrinks(name, size) {
     if (shelfLife < 0 || shelfLife > 60) {
@@ -59,6 +58,6 @@ string Limonade::carbonation() const {
     }
 }
 
-const char *Limonade::type() const {
+const string Limonade::type() const {
     return limonade[static_cast<int>(type_)];
 }

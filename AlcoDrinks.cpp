@@ -1,8 +1,8 @@
 #include "AlcoDrinks.h"
 
-const char* Beer::raws[] = {"barley", "wheat", "ginger", "rice", "corn"};
-const char* Cognac::agings[] = {"VS", "Superior", "SOP", "VSOP", "EO"};
-const char* Wine::wineColor[] = {"white", "red", "orange", "pink"};
+const string Beer::raws[] = {"barley", "wheat", "ginger", "rice", "corn"};
+const string Cognac::agings[] = {"VS", "Superior", "SOP", "VSOP", "EO"};
+const string Wine::wineColor[] = {"white", "red", "orange", "pink"};
 
 Beer::Beer(const string& name, double size, double proof, Raw raw, BeerColor color): AlcoDrinks(name, size, proof) {
     raw_ = raw;
@@ -13,7 +13,7 @@ double Beer::proof() const {
     return proof_;
 }
 
-const char *Beer::raw() const {
+string Beer::raw() const {
     return raws[static_cast<int>(raw_)];
 }
 
@@ -32,7 +32,7 @@ double Cognac::proof() const {
     return proof_;
 }
 
-const char *Cognac::aging() const {
+const string Cognac::aging() const {
     return agings[static_cast<int>(aging_)];
 }
 
@@ -45,7 +45,7 @@ double Wine::proof() const {
     return proof_;
 }
 
-const char* Wine::color() const {
+const string Wine::color() const {
     return wineColor[static_cast<int>(color_)];
 }
 

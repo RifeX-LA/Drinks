@@ -3,7 +3,6 @@
 
 #include <string>
 #include "Drinks.h"
-using std::string;
 
 enum class Raw {barley, wheat, ginger, rice, corn};
 enum class BeerColor {light, dark};
@@ -17,24 +16,24 @@ class Beer: public AlcoDrinks {
 public:
     Beer(const string& name, double size, double proof, Raw raw, BeerColor color);
     double proof() const override;
-    const char* raw() const;
+    string raw() const;
     string color() const;
     virtual ~Beer() {}
 private:
     Raw raw_;
     BeerColor color_;
-    static const char* raws[];
+    static const string raws[];
 };
 
 class Cognac: public AlcoDrinks {
 public:
     Cognac(const string& name, double size, double proof, Aging aging);
     double proof() const override;
-    const char* aging() const;
+    const string aging() const;
     virtual ~Cognac() {}
 private:
     Aging aging_;
-    static const char* agings[];
+    static const string agings[];
 };
 
 class Wine: public AlcoDrinks {
@@ -42,12 +41,12 @@ public:
     Wine(const string& name, double size, double proof, Sweetness, WineColor color);
     double proof() const override;
     string sweetness() const;
-    const char* color() const;
+    const string color() const;
     virtual ~Wine() {}
 private:
     Sweetness sweetness_;
     WineColor color_;
-    static const char* wineColor[];
+    static const string wineColor[];
 };
 
 
