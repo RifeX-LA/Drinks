@@ -62,7 +62,7 @@ class Cognac: public AlcoDrinks {
 public:
     Cognac(const string& name, double size, double proof, Aging aging);
     double proof() const override;
-    const string aging() const;
+    string aging() const;
     virtual ~Cognac() {}
 private:
     Aging aging_;
@@ -74,19 +74,19 @@ public:
     Wine(const string& name, double size, double proof, Sweetness, WineColor color);
     double proof() const override;
     string sweetness() const;
-    const string color() const;
+    string color() const;
     virtual ~Wine() {}
 private:
     Sweetness sweetness_;
     WineColor color_;
-    static const string wineColor[];
+    static const string wineColors[];
 };
 
-//************** SOFT DRINKS **************//
+//**************** SOFT DRINKS ****************//
 
 enum class Carbonation {still, slightly, strongly};
 enum class Mineralization {insipid, slightly, low, medium, highly};
-enum class LimonadeType {classic, coconut, tropic, berry, crimson, apple};
+enum class LemonadeType {classic, coconut, tropic, berry, crimson, apple};
 
 class Milk: public SoftDrinks {
 public:
@@ -110,16 +110,16 @@ private:
     Mineralization mineraliz_;
 };
 
-class Limonade: public SoftDrinks {
+class Lemonade: public SoftDrinks {
 public:
-    Limonade(const string& name, double size, Carbonation carbonation, LimonadeType type);
+    Lemonade(const string& name, double size, Carbonation carbonation, LemonadeType type);
     string carbonation() const;
-    const string type() const;
-    virtual ~Limonade() {}
+    string type() const;
+    virtual ~Lemonade() {}
 private:
     Carbonation carbonation_;
-    LimonadeType type_;
-    static const string limonade[];
+    LemonadeType type_;
+    static const string LemonadeTypes[];
 };
 
 

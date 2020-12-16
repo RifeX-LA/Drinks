@@ -8,7 +8,7 @@ int main() {
         Cognac cognac("Hennessy", 1.5, 30, Aging::SOP);
         Milk milk("Freshz", 1, 5, 3);
         Mineral mineral("Darida", 2.5, Carbonation::strongly, Mineralization::highly);
-        Limonade limonade("Coca-cola", 5, Carbonation::still, LimonadeType::apple);
+        Lemonade lemonade("Coca-cola", 5, Carbonation::still, LemonadeType::apple);
 
         milk.rename("True taste");
         wine.resize(2);
@@ -32,9 +32,9 @@ int main() {
                   << mineral.carbonation()
                   << ", mineralization: " << mineral.mineraliz() << '\n';
 
-        std::cout << "Name: " << limonade.name() << ", size: " << limonade.size() << "l, carbonation: "
-                  << limonade.carbonation()
-                  << ", limonade type: " << limonade.type() << '\n';
+        std::cout << "Name: " << lemonade.name() << ", size: " << lemonade.size() << "l, carbonation: "
+                  << lemonade.carbonation()
+                  << ", lemonade type: " << lemonade.type() << '\n';
     }
     catch (std::exception &e) {
         std::cerr << e.what();
